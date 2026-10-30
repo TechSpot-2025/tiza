@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiza: records your online class at class time</title>
+  <meta name="description" content="Free Mac and Windows app for students. Add your Zoom, Teams or Meet class once; at class time Tiza opens it, records it and saves the MP4 to your own cloud.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://api.fontshare.com https://fonts.googleapis.com; font-src https://cdn.fontshare.com https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf8f0">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15171a">
+  <meta property="og:title" content="Tiza: records your online class at class time">
+  <meta property="og:description" content="Free Mac and Windows app for students. Add your Zoom, Teams or Meet class once; at class time Tiza opens it, records it and saves the MP4 to your own cloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_LA">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://techspot-2025.github.io/tiza/">
+  <meta property="og:url" content="https://techspot-2025.github.io/tiza/">
+  <link rel="alternate" hreflang="en" href="https://techspot-2025.github.io/tiza/">
+  <link rel="alternate" hreflang="es" href="https://techspot-2025.github.io/tiza/es/">
+  <link rel="alternate" hreflang="x-default" href="https://techspot-2025.github.io/tiza/">
+  <link rel="icon" href="assets/tiza-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script src="theme.js"></script>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="https://techspot-2025.github.io/tiza/" aria-label="Tiza">
+      <img src="assets/tiza-wordmark.svg" alt="tiza" width="75" height="28" class="logo-light">
+      <img src="assets/tiza-wordmark-dark.svg" alt="" width="75" height="28" class="logo-dark" aria-hidden="true">
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#cloud">Privacy</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="lang" href="https://techspot-2025.github.io/tiza/es/" hreflang="es" lang="es" aria-label="Español: Leer esta página en español"><span class="lang-full">Español</span><span class="lang-short" aria-hidden="true">ES</span></a>
+    <div class="cta cta-nav" data-cta data-compact>
+      <a class="btn btn-primary btn-sm" data-os="mac" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-mac-universal.dmg">Download for macOS · free</a>
+      <a class="btn btn-primary btn-sm" data-os="win" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-win-x64.exe">Download for Windows · free</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. Hero: fragment on a shaped stage -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="hero-in">
+      <div class="hero-text">
+        <h1 id="h1"><span class="line">Your class starts.</span> <mark>Tiza records it.</mark></h1>
+        <p class="lead">At class time, Tiza opens your Zoom, Teams or Meet class, records it and saves the MP4 to your own cloud.</p>
+        <div class="cta" data-cta>
+          <a class="btn btn-primary" data-os="mac" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-mac-universal.dmg">Download for macOS · free</a>
+          <a class="btn btn-primary" data-os="win" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-win-x64.exe">Download for Windows · free</a>
+          
+        </div>
+        <p class="micro">Free during beta, version 0.1.0. No Tiza account. The app’s own screens are in Spanish today.</p>
+        <p class="micro rules-line">Record only classes you’re allowed to record. <a href="#rules">Check the rules first.</a></p>
+      </div>
+
+      <div class="stage ch-honey">
+        <div class="notch" aria-hidden="true"><span class="ring"><span class="dot"></span></span></div>
+
+        <!-- The demo: the app's next-class card, as a state machine. Cloned by app.js into #how. -->
+        <div class="demo" id="demo-hero" data-state="ready" data-cloud="drive" data-platform="zoom">
+          <div class="win" role="img" aria-label="Tiza’s main window, simulated">
+            <div class="win-bar">
+              <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="win-title"><span class="win-dot" aria-hidden="true"></span><span data-demo="title">Calculus II · Tiza</span></span>
+              <span class="win-spacer" aria-hidden="true"></span>
+            </div>
+            <div class="win-body">
+              <aside class="win-side" aria-hidden="true">
+                <ul>
+                  <li class="on">Classes</li>
+                  <li>Recordings</li>
+                  <li>Accounts</li>
+                  <li>Settings</li>
+                </ul>
+                <span class="pill" data-demo="pill">Ready</span>
+              </aside>
+              <div class="win-main">
+                <p class="win-eyebrow">Next class</p>
+                <p class="win-h">Calculus II <small>(example)</small></p>
+                <p class="win-when">Tue · 10:00–11:30 · <span data-demo="platform">Zoom</span></p>
+                <p class="win-status">
+                  <span class="ring"><span class="dot"></span></span>
+                  <span data-demo="status">Ready to record</span>
+                  <span class="mono" data-demo="timer"></span>
+                </p>
+                <div class="bar" aria-hidden="true"><i data-demo="bar"></i></div>
+                <p class="win-file mono" data-demo="file"></p>
+              </div>
+            </div>
+          </div>
+          <p class="sr-only" data-demo="live" role="status"></p>
+          <div class="demo-ctl" role="group" aria-label="Demo controls" data-demo="ctl">
+            <button type="button" class="chip" data-toggle>Pause</button>
+            <button type="button" class="chip" data-set="ready" aria-pressed="true">Ready</button>
+            <button type="button" class="chip" data-set="joining" aria-pressed="false">Joining</button>
+            <button type="button" class="chip" data-set="recording" aria-pressed="false">Recording</button>
+            <button type="button" class="chip" data-set="uploading" aria-pressed="false">Uploading</button>
+            <button type="button" class="chip" data-set="saved" aria-pressed="false">Saved</button>
+          </div>
+          <p class="demo-note" data-demo="note"></p>
+        </div>
+        <p class="caption">Simulation of the app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Use it when + what it works with -->
+  <section class="when" aria-labelledby="when-h">
+    <div class="wrap">
+      <h2 id="when-h" class="when-h">Use it when</h2>
+      <ul class="when-list" role="list">
+        <li>Class at 2, shift at 2.</li>
+        <li>The class is at 3 a.m. your time.</li>
+        <li>Exam week, and the professor didn’t record.</li>
+      </ul>
+      <div class="works" aria-label="What Tiza works with">
+        <dl class="works-list">
+          <div><dt>Opens classes on</dt><dd><ul class="inline-list" role="list"><li>Zoom</li><li>Microsoft Teams</li><li>Google Meet</li></ul></dd></div>
+          <div><dt>Saves to</dt><dd><ul class="inline-list" role="list"><li>Google Drive</li><li>OneDrive</li><li>Dropbox</li><li>iCloud Drive</li></ul></dd></div>
+          <div><dt>Adds classes from</dt><dd><ul class="inline-list" role="list"><li>a pasted link</li><li>Canvas (your course’s Zoom tab)</li></ul></dd></div>
+          <div><dt>Runs on</dt><dd><ul class="inline-list" role="list"><li>macOS 13+</li><li>Windows 10 and 11</li></ul></dd></div>
+        </dl>
+        <p class="small works-note">Not affiliated with Zoom, Microsoft, Google, Dropbox, Apple or Instructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. How it works: pinned demo, three steps -->
+  <section class="how ch-ink" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">Three steps. You only do the first.</h2>
+      <div class="how-grid">
+        <ol class="steps" role="list">
+          <li class="step" data-step="ready">
+            <h3>Add your class</h3>
+            <p>Paste the Zoom, Teams or Meet link and pick the days and time. Or connect Canvas and pick the class from your course’s Zoom tab; Tiza fills in the rest.</p>
+            <div class="seg" role="group" aria-labelledby="seg-platform">
+              <span class="seg-label" id="seg-platform">Your class is on</span>
+              <button type="button" class="chip" data-platform="zoom" aria-pressed="true">Zoom</button>
+              <button type="button" class="chip" data-platform="teams" aria-pressed="false">Teams</button>
+              <button type="button" class="chip" data-platform="meet" aria-pressed="false">Meet</button>
+            </div>
+          </li>
+          <li class="step" data-step="recording">
+            <h3>Tiza opens the class and records it</h3>
+            <p>By default, two minutes early it opens the class window and records video and audio. Camera off. Mic off unless you turn it on. If the class needs a click (a waiting room, a passcode), you do that once.</p>
+          </li>
+          <li class="step" data-step="saved">
+            <h3>The file lands in your cloud</h3>
+            <p>When class ends, the MP4 uploads to the cloud you picked. A copy stays on your computer too, unless you turn that off.</p>
+            <div class="seg" role="group" aria-labelledby="seg-cloud">
+              <span class="seg-label" id="seg-cloud">Save to</span>
+              <button type="button" class="chip" data-cloud="drive" aria-pressed="true">Google Drive</button>
+              <button type="button" class="chip" data-cloud="onedrive" aria-pressed="false">OneDrive</button>
+              <button type="button" class="chip" data-cloud="dropbox" aria-pressed="false">Dropbox</button>
+              <button type="button" class="chip" data-cloud="icloud" aria-pressed="false">iCloud Drive</button>
+            </div>
+          </li>
+        </ol>
+        <div class="how-stage"><div class="how-sticky ch-honey" id="demo-how-slot"></div></div>
+      </div>
+      <p class="outcome">Next time you open your Drive, the class is there.</p>
+      <div class="cta" data-cta>
+        <a class="btn btn-primary" data-os="mac" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-mac-universal.dmg">Download for macOS · free</a>
+        <a class="btn btn-primary" data-os="win" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-win-x64.exe">Download for Windows · free</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Your class, your cloud -->
+  <section class="cloud" id="cloud" aria-labelledby="cloud-h">
+    <div class="wrap">
+      <h2 id="cloud-h">Your class, your cloud. Not ours.</h2>
+      <svg class="diagram" viewBox="0 0 920 310" role="img" aria-label="Diagram: the class window is recorded on your computer as an MP4 and uploaded straight to your cloud. There is no Tiza server in between." data-diagram>
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z"/></marker>
+        </defs>
+        <g class="node">
+          <rect x="0" y="90" width="240" height="100" rx="16"/>
+          <text x="120" y="146" text-anchor="middle">Class window</text>
+        </g>
+        <path class="arrow" d="M242 140 H326" data-arrow/>
+        <g class="node">
+          <rect x="340" y="90" width="240" height="100" rx="16"/>
+          <text x="460" y="134" text-anchor="middle">Your computer</text>
+          <text x="460" y="166" text-anchor="middle" class="mono-t">MP4</text>
+        </g>
+        <path class="arrow" d="M582 140 H666" data-arrow/>
+        <g class="node">
+          <rect x="680" y="90" width="240" height="100" rx="16"/>
+          <text x="800" y="146" text-anchor="middle" data-demo="cloudname">Your cloud</text>
+        </g>
+        <g class="node ghost">
+          <rect x="340" y="226" width="240" height="64" rx="12"/>
+          <path class="cross" d="M362 248 L382 268 M382 248 L362 268"/>
+          <text x="472" y="252" text-anchor="middle">Tiza server</text>
+          <text x="472" y="276" text-anchor="middle" class="sub">there isn’t one</text>
+        </g>
+      </svg>
+      <ol class="diagram-stack" role="list" aria-label="Diagram: the class window is recorded on your computer as an MP4 and uploaded straight to your cloud. There is no Tiza server in between.">
+        <li>Class window</li>
+        <li>Your computer <span class="mono small">MP4</span></li>
+        <li data-demo="cloudname2">Your cloud</li>
+        <li class="ghost">Tiza server: there isn’t one</li>
+      </ol>
+      <div class="cloud-grid">
+        <ul class="facts" role="list">
+          <li>No Tiza account. Nothing to sign up for.</li>
+          <li>No extra attendee. Tiza joins under your name, from your computer: in your own account, or as a guest if the platform blocks signing in.</li>
+          <li>Tiza never sees your Zoom, Teams or Google password. You sign in once, on their own page, inside the app.</li>
+          <li>Cloud access is approved on Google’s, Microsoft’s or Dropbox’s own page in your browser. The permission token is stored encrypted on your computer and you can revoke it from your account anytime.</li>
+          <li>No AI reads your class. Tiza records; it doesn’t transcribe or summarize.</li>
+          <li>No analytics, no telemetry, no cookies. This page loads only its fonts from Fontshare and Google Fonts.</li>
+        </ul>
+        <div class="dont">
+          <h3>What Tiza doesn’t do</h3>
+          <ul role="list">
+            <li>Send a bot to your class</li>
+            <li>Transcribe or summarize</li>
+            <li>Keep your platform passwords</li>
+            <li>Record while your computer is off</li>
+            <li>Run on a phone</li>
+            <li>Turn your camera on</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Check the rules -->
+  <section class="rules" id="rules" aria-labelledby="rules-h">
+    <div class="wrap">
+      <div class="rules-card">
+        <h2 id="rules-h">Before recording, check the rules.</h2>
+        <p>Some classes allow personal recordings. Some don’t. Check your syllabus, then your school’s policy, and if you’re not sure, ask your instructor. Recording without permission can break school rules and, depending on where you and your classmates are, recording laws.</p>
+        <p>Tiza joins under your name, with the camera off and the mic off by default, so the class may show you as present and may not show a recording notice. If your class takes attendance or participation, that’s on you. Keep recordings for your own study; don’t post or share them. Have a recording accommodation? Follow its terms.</p>
+        <blockquote class="template" id="rules-template">Hi Professor ___, I’d like to record our online sessions for my own review. I’d keep the recordings private and wouldn’t share them. Is that OK with you? Thanks, ___</blockquote>
+        <div class="row">
+          <button type="button" class="btn btn-ghost" data-copy="#rules-template" data-ok="Copied. Paste it into an email." data-fail="Couldn’t copy. Select the text above instead.">Copy a note for my instructor</button>
+          <span class="status small" role="status"></span>
+        </div>
+        <p class="small">This isn’t legal advice.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Free during beta + download panel -->
+  <section class="beta ch-honey" id="beta" aria-labelledby="beta-h">
+    <div class="wrap">
+      <h2 id="beta-h">Free while it’s in beta.</h2>
+      <div class="beta-grid">
+        <div>
+          <ul class="checks" role="list">
+            <li>Zoom, Teams and Meet</li>
+            <li>Google Drive, OneDrive, Dropbox and iCloud Drive</li>
+            <li>Mac and Windows</li>
+            <li>Classes from Canvas</li>
+            <li>No account; records until the class ends</li>
+          </ul>
+          <p class="pro">A paid Pro plan may come after the beta. There’s no price and nothing decided yet. Your recordings are files in your own cloud, so they stay yours either way.</p>
+        </div>
+        <div class="dl" id="download" data-download>
+          <h3>Download</h3>
+          <div class="dl-row" data-dl="mac">
+            <div>
+              <strong>macOS</strong>
+              <span class="small">Version 0.1.0 · macOS 13 Ventura or later</span>
+            </div>
+            <a class="btn btn-primary" data-os="mac" data-dl-link href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-mac-universal.dmg">Download for macOS · free</a>
+            <p class="small" data-dl-unpublished id="dl-unpub-mac" hidden>The beta build isn’t out yet. Check back soon.</p>
+          </div>
+          <div class="dl-row" data-dl="win">
+            <div>
+              <strong>Windows</strong>
+              <span class="small">Version 0.1.0 · Windows 10 or 11</span>
+            </div>
+            <a class="btn btn-primary" data-os="win" data-dl-link href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-win-x64.exe">Download for Windows · free</a>
+            <p class="small" data-dl-unpublished id="dl-unpub-win" hidden>The beta build isn’t out yet. Check back soon.</p>
+          </div>
+          <p class="small" data-dl-notify hidden><a data-dl-notify-link href="#download">Email me when it’s out</a></p>
+          <div class="first" data-first>
+            <h4>First time opening it</h4>
+            <p data-signing>The beta builds aren’t signed yet, so your computer will warn you the first time.</p>
+            <ul data-unsigned-steps role="list">
+              <li>Mac: if macOS says it can’t verify the developer, open System Settings → Privacy &amp; Security, scroll down and click Open Anyway, then confirm.</li>
+              <li>Windows: if you see “Windows protected your PC”, click More info, then Run anyway. On a new Windows 11 PC with Smart App Control turned on, an unsigned app can be blocked outright; that PC needs a signed build.</li>
+            </ul>
+            <p>On a Mac, the first run asks for permission to record the screen and audio. That’s how it records the class window.</p>
+            <p>Before you rely on it, run Settings → Test recording inside the app and watch the 8-second file.</p>
+            <p>No auto-update yet. For fixes, download again from this page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap"><div class="faq-in">
+      <h2 id="faq-h">Questions you’d ask a friend</h2>
+      <details id="faq-rules" open><summary>Is it OK to record my class?</summary><div>It depends on your class and your school. Check your syllabus and your school’s policy, and if you’re not sure, ask your instructor. Some schools require permission even for personal use. Keep recordings for your own study; don’t post or share them. <a href="#rules">The rules card above</a> has a message you can send.</div></details>
+      <details id="faq-present"><summary>Will my professor see me in the class?</summary><div>Yes. Tiza opens the class under your name (your own account, or as a guest with your name if Google Meet blocks signing in), with the camera off and the mic off by default. If your class takes attendance or calls on people, you’re responsible for that.</div></details>
+      <details id="faq-where"><summary>Where does the recording go, and who can see it?</summary><div>An MP4 goes to the cloud you pick: Google Drive, OneDrive, Dropbox, or your iCloud Drive folder, which your computer syncs. It lands in your account, so only you and anyone you share it with can see it. There’s no Tiza server in between. A copy also stays on your computer unless you turn that off. Free cloud plans fill up fast, so check your space.</div></details>
+      <details id="faq-password"><summary>Does Tiza need my Zoom, Teams or Google password?</summary><div>No. You sign in once inside the app, on Zoom’s, Microsoft’s or Google’s own page, and the app remembers that session. Tiza never stores your password. For your cloud, you approve access on the provider’s own page in your browser, and the permission token is kept encrypted on your computer.</div></details>
+      <details id="faq-asleep"><summary>Does my computer need to be on and awake?</summary><div>It needs to be on, with Tiza running. Tiza can open when you log in and wait in your menu bar or tray. If your computer might be asleep, turn on “Wake before class” and Tiza wakes it a few minutes early; on a Mac that asks for your admin password whenever it schedules the next wake-ups, so you’ll see the prompt now and then. If the computer is off or out of battery, Tiza can’t record, so keep it plugged in.</div></details>
+      <details id="faq-join"><summary>What if it can’t get into the class?</summary><div>Joining is automatic when it can be. A passcode, a waiting room or an expired sign-in can need you once; the class window stays open so you can click. If the link changes, open the class in Tiza and paste the new one. Classes added from Canvas keep the course’s lasting Zoom link, not Canvas’s one-time link. Run the test recording in Settings before the first real class.</div></details>
+      <details id="faq-zoom"><summary>Why not just press Record in Zoom?</summary><div>Often only the host can record, and the host’s cloud recordings live in their account; some schools delete them after a few weeks. Tiza records on your side, starts on its own at class time, and keeps the file in your cloud. If your school already posts every recording, you may not need Tiza at all.</div></details>
+      <details id="faq-free"><summary>Is it free? Mac, Windows, phone? Is the app in English?</summary><div>Free during the beta; a Pro plan may come later, with no price decided. macOS 13 or later and Windows 10 or 11. There’s no phone app: recording a class needs a computer. The app’s own screens are in Spanish today; this page is in both languages.</div></details>
+    </div></div>
+  </section>
+
+  <!-- 8. Final CTA -->
+  <section class="final ch-honey" aria-labelledby="final-h">
+    <div class="wrap">
+      <h2 id="final-h" class="poster"><span class="line">Be in class when you can.</span> <span class="line">Have the recording when you can’t.</span></h2>
+      <div class="cta" data-cta>
+        <a class="btn btn-primary" data-os="mac" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-mac-universal.dmg">Download for macOS · free</a>
+        <a class="btn btn-primary" data-os="win" href="https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-win-x64.exe">Download for Windows · free</a>
+        
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-ghost" data-share data-ok="Link copied." data-text="Tiza records your online class at class time and saves it to your own cloud.">Share Tiza</button>
+        <span class="status small" role="status"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot ch-ink">
+  <div class="wrap foot-in">
+    <div class="foot-col">
+      <img src="assets/tiza-lockup-dark.svg" alt="tiza" width="140" height="75">
+      <p>Tiza is made by Victor Cuerdo. <span data-contact hidden>Questions, bugs or ideas: <a data-contact-link href="#"></a></span></p>
+      <p class="small">Tiza means chalk in Spanish.</p>
+    </div>
+    <div class="foot-col">
+      <nav aria-label="Footer">
+        <p><a href="#how">How it works</a></p>
+        <p><a href="#cloud">Privacy</a></p>
+        <p><a href="#faq">FAQ</a></p>
+      </nav>
+      <p><a href="privacidad.html">Privacy policy</a> <span class="small">(Spanish, with an English summary)</span></p>
+      <p><a href="guia-estudiante.html">Student guide</a> <span class="small">(Spanish)</span></p>
+      <p><a href="https://techspot-2025.github.io/tiza/es/" hreflang="es" lang="es">Español</a></p>
+      <div class="theme" role="group" aria-label="Theme" data-theme-ctl>
+        <button type="button" class="chip" data-theme-set="auto" aria-pressed="true">Auto</button>
+        <button type="button" class="chip" data-theme-set="light" aria-pressed="false">Light</button>
+        <button type="button" class="chip" data-theme-set="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+    <div class="foot-col foot-legal">
+      <p class="small">The tiza wordmark is set in Clash Display and the text in Switzer, both by Indian Type Foundry (ITF), from Fontshare. Timers in Geist Mono.</p>
+      <p class="small">© 2026 Tiza</p>
+    </div>
+  </div>
+</footer>
+
+<script id="config" type="application/json">{"version":"0.1.0","_comment":"Publishing config for the landing page. Rendered into the HTML by site/build.mjs (so links work without JS) and read by app.js. Version comes from package.json.","siteUrl":"https://techspot-2025.github.io/tiza","downloads":{"mac":{"url":"https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-mac-universal.dmg","sha256":"1ab8c67288e3fcd1087ebeaea576725f232a8c505f8e747f69bdfefc877d3ee9"},"win":{"url":"https://github.com/TechSpot-2025/tiza/releases/download/v0.1.0/Tiza-0.1.0-win-x64.exe","sha256":"a8528fad26ad4a347825c7c0618d7e5efdd7f41d6657ada2cfd0c28a68e9090b"}},"signed":false,"contactEmail":"victor.cuerdo@me.com"}</script>
+<script id="i18n" type="application/json">{"lang":"en","alt_lang_label":"Español","alt_lang_aria":"Leer esta página en español","meta_title":"Tiza: records your online class at class time","meta_desc":"Free Mac and Windows app for students. Add your Zoom, Teams or Meet class once; at class time Tiza opens it, records it and saves the MP4 to your own cloud.","skip":"Skip to content","nav_how":"How it works","nav_privacy":"Privacy","nav_faq":"FAQ","nav_aria":"Main navigation","logo_alt":"tiza","cta_mac":"Download for macOS · free","cta_win":"Download for Windows · free","cta_other_mac":"Also for macOS","cta_other_win":"Also for Windows","cta_mobile":"Send it to my laptop","cta_mobile_note":"Tiza is a Mac and Windows app. There’s no phone app.","cta_mobile_copied":"Link copied. Open it on your computer.","cta_mobile_fail":"Copy this page’s address and open it on your computer.","hero_lead":"At class time, Tiza opens your Zoom, Teams or Meet class, records it and saves the MP4 to your own cloud.","hero_micro":"Free during beta, version 0.1.0. No Tiza account. The app’s own screens are in Spanish today.","hero_rules":"Record only classes you’re allowed to record. <a href=\"#rules\">Check the rules first.</a>","demo_caption":"Simulation of the app.","demo_title":"Calculus II · Tiza","demo_side_classes":"Classes","demo_side_recordings":"Recordings","demo_side_accounts":"Accounts","demo_side_settings":"Settings","demo_next":"Next class","demo_class":"Calculus II","demo_example":"example","demo_when":"Tue · 10:00–11:30","demo_st_ready":"Ready to record","demo_st_countdown":"starts in","demo_st_joining":"Opening the class…","demo_st_recording":"Recording","demo_st_uploading":"Uploading to {cloud}","demo_st_uploading_icloud":"Copying to your iCloud Drive folder","demo_st_saved":"Saved to {cloud}","demo_st_saved_icloud":"Copied to iCloud Drive","demo_file":"Calculus II · 2026-10-29.mp4","demo_pill_ready":"Ready","demo_pill_rec":"Recording","demo_pill_done":"Saved","demo_ctl_ready":"Ready","demo_ctl_joining":"Joining","demo_ctl_recording":"Recording","demo_ctl_uploading":"Uploading","demo_ctl_saved":"Saved","demo_stopped":"Auto-play is off. Pick a state, or press Play.","when_h2":"Use it when","when_1":"Class at 2, shift at 2.","when_2":"The class is at 3 a.m. your time.","when_3":"Exam week, and the professor didn’t record.","works_opens":"Opens classes on","works_opens_v":"Zoom · Microsoft Teams · Google Meet","works_saves":"Saves to","works_saves_v":"Google Drive · OneDrive · Dropbox · iCloud Drive","works_adds":"Adds classes from","works_adds_v":"a pasted link · Canvas (your course’s Zoom tab)","works_runs":"Runs on","works_runs_v":"macOS 13+ · Windows 10 and 11","works_note":"Not affiliated with Zoom, Microsoft, Google, Dropbox, Apple or Instructure.","how_h2":"Three steps. You only do the first.","step1_t":"Add your class","step1_b":"Paste the Zoom, Teams or Meet link and pick the days and time. Or connect Canvas and pick the class from your course’s Zoom tab; Tiza fills in the rest.","step2_t":"Tiza opens the class and records it","step2_b":"By default, two minutes early it opens the class window and records video and audio. Camera off. Mic off unless you turn it on. If the class needs a click (a waiting room, a passcode), you do that once.","step3_t":"The file lands in your cloud","step3_b":"When class ends, the MP4 uploads to the cloud you picked. A copy stays on your computer too, unless you turn that off.","how_outcome":"Next time you open your Drive, the class is there.","sel_platform":"Your class is on","sel_cloud":"Save to","cloud_h2":"Your class, your cloud. Not ours.","d_class":"Class window","d_pc":"Your computer","d_pc_sub":"MP4","d_cloud":"Your cloud","d_server":"Tiza server","d_server_sub":"there isn’t one","d_aria":"Diagram: the class window is recorded on your computer as an MP4 and uploaded straight to your cloud. There is no Tiza server in between.","cloud_1":"No Tiza account. Nothing to sign up for.","cloud_2":"No extra attendee. Tiza joins under your name, from your computer: in your own account, or as a guest if the platform blocks signing in.","cloud_3":"Tiza never sees your Zoom, Teams or Google password. You sign in once, on their own page, inside the app.","cloud_4":"Cloud access is approved on Google’s, Microsoft’s or Dropbox’s own page in your browser. The permission token is stored encrypted on your computer and you can revoke it from your account anytime.","cloud_5":"No AI reads your class. Tiza records; it doesn’t transcribe or summarize.","cloud_6":"No analytics, no telemetry, no cookies. This page loads only its fonts from Fontshare and Google Fonts.","dont_h3":"What Tiza doesn’t do","dont_1":"Send a bot to your class","dont_2":"Transcribe or summarize","dont_3":"Keep your platform passwords","dont_4":"Record while your computer is off","dont_5":"Run on a phone","dont_6":"Turn your camera on","rules_h2":"Before recording, check the rules.","rules_p1":"Some classes allow personal recordings. Some don’t. Check your syllabus, then your school’s policy, and if you’re not sure, ask your instructor. Recording without permission can break school rules and, depending on where you and your classmates are, recording laws.","rules_p2":"Tiza joins under your name, with the camera off and the mic off by default, so the class may show you as present and may not show a recording notice. If your class takes attendance or participation, that’s on you. Keep recordings for your own study; don’t post or share them. Have a recording accommodation? Follow its terms.","rules_btn":"Copy a note for my instructor","rules_copied":"Copied. Paste it into an email.","rules_copy_fail":"Couldn’t copy. Select the text above instead.","rules_template":"Hi Professor ___, I’d like to record our online sessions for my own review. I’d keep the recordings private and wouldn’t share them. Is that OK with you? Thanks, ___","rules_fine":"This isn’t legal advice.","beta_h2":"Free while it’s in beta.","beta_1":"Zoom, Teams and Meet","beta_2":"Google Drive, OneDrive, Dropbox and iCloud Drive","beta_3":"Mac and Windows","beta_4":"Classes from Canvas","beta_5":"No account; records until the class ends","beta_pro":"A paid Pro plan may come after the beta. There’s no price and nothing decided yet. Your recordings are files in your own cloud, so they stay yours either way.","dl_h3":"Download","dl_version":"Version","dl_min_mac":"macOS 13 Ventura or later","dl_min_win":"Windows 10 or 11","dl_unpublished":"The beta build isn’t out yet. Check back soon.","dl_notify":"Email me when it’s out","dl_notify_subject":"Tell me when the Tiza beta is out","dl_sha":"SHA-256","dl_first_h4":"First time opening it","dl_signing":"The beta builds aren’t signed yet, so your computer will warn you the first time.","dl_mac_steps":"Mac: if macOS says it can’t verify the developer, open System Settings → Privacy & Security, scroll down and click Open Anyway, then confirm.","dl_win_steps":"Windows: if you see “Windows protected your PC”, click More info, then Run anyway.","dl_sac":"On a new Windows 11 PC with Smart App Control turned on, an unsigned app can be blocked outright; that PC needs a signed build.","dl_perm":"On a Mac, the first run asks for permission to record the screen and audio. That’s how it records the class window.","dl_update":"No auto-update yet. For fixes, download again from this page.","dl_test":"Before you rely on it, run Settings → Test recording inside the app and watch the 8-second file.","faq_h2":"Questions you’d ask a friend","faq_1_q":"Is it OK to record my class?","faq_1_a":"It depends on your class and your school. Check your syllabus and your school’s policy, and if you’re not sure, ask your instructor. Some schools require permission even for personal use. Keep recordings for your own study; don’t post or share them. <a href=\"#rules\">The rules card above</a> has a message you can send.","faq_2_q":"Will my professor see me in the class?","faq_2_a":"Yes. Tiza opens the class under your name (your own account, or as a guest with your name if Google Meet blocks signing in), with the camera off and the mic off by default. If your class takes attendance or calls on people, you’re responsible for that.","faq_3_q":"Where does the recording go, and who can see it?","faq_3_a":"An MP4 goes to the cloud you pick: Google Drive, OneDrive, Dropbox, or your iCloud Drive folder, which your computer syncs. It lands in your account, so only you and anyone you share it with can see it. There’s no Tiza server in between. A copy also stays on your computer unless you turn that off. Free cloud plans fill up fast, so check your space.","faq_4_q":"Does Tiza need my Zoom, Teams or Google password?","faq_4_a":"No. You sign in once inside the app, on Zoom’s, Microsoft’s or Google’s own page, and the app remembers that session. Tiza never stores your password. For your cloud, you approve access on the provider’s own page in your browser, and the permission token is kept encrypted on your computer.","faq_5_q":"Does my computer need to be on and awake?","faq_5_a":"It needs to be on, with Tiza running. Tiza can open when you log in and wait in your menu bar or tray. If your computer might be asleep, turn on “Wake before class” and Tiza wakes it a few minutes early; on a Mac that asks for your admin password whenever it schedules the next wake-ups, so you’ll see the prompt now and then. If the computer is off or out of battery, Tiza can’t record, so keep it plugged in.","faq_6_q":"What if it can’t get into the class?","faq_6_a":"Joining is automatic when it can be. A passcode, a waiting room or an expired sign-in can need you once; the class window stays open so you can click. If the link changes, open the class in Tiza and paste the new one. Classes added from Canvas keep the course’s lasting Zoom link, not Canvas’s one-time link. Run the test recording in Settings before the first real class.","faq_7_q":"Why not just press Record in Zoom?","faq_7_a":"Often only the host can record, and the host’s cloud recordings live in their account; some schools delete them after a few weeks. Tiza records on your side, starts on its own at class time, and keeps the file in your cloud. If your school already posts every recording, you may not need Tiza at all.","faq_8_q":"Is it free? Mac, Windows, phone? Is the app in English?","faq_8_a":"Free during the beta; a Pro plan may come later, with no price decided. macOS 13 or later and Windows 10 or 11. There’s no phone app: recording a class needs a computer. The app’s own screens are in Spanish today; this page is in both languages.","share_btn":"Share Tiza","share_copied":"Link copied.","share_text":"Tiza records your online class at class time and saves it to your own cloud.","foot_maker":"Tiza is made by Victor Cuerdo.","foot_contact":"Questions, bugs or ideas:","foot_privacy":"Privacy policy","foot_privacy_note":"(Spanish, with an English summary)","foot_guide":"Student guide","foot_name":"Tiza means chalk in Spanish.","foot_theme_auto":"Auto","foot_theme_light":"Light","foot_theme_dark":"Dark","foot_credit":"The tiza wordmark is set in Clash Display and the text in Switzer, both by Indian Type Foundry (ITF), from Fontshare. Timers in Geist Mono.","foot_copy":"© 2026 Tiza","hero_h1_a":"Your class starts.","hero_h1_b":"Tiza records it.","demo_pause":"Pause","demo_play":"Play","demo_live_prefix":"Demo state:","demo_win_aria":"Tiza’s main window, simulated","works_aria":"What Tiza works with","final_h2_a":"Be in class when you can.","final_h2_b":"Have the recording when you can’t.","foot_guide_note":"(Spanish)","foot_home":"Home","linux_note":"Tiza runs on macOS and Windows. Linux isn’t supported yet.","theme_aria":"Theme","alt_lang_short":"ES","nav_footer":"Footer","demo_ctl_aria":"Demo controls","dl_unpublished_short":"The beta build isn’t out yet. Details below."}</script>
+<script src="app.js" defer></script>
+</body>
+</html>

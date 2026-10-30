@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía para estudiantes · Tiza</title>
+  <meta name="description" content="Cómo instalar Tiza, agregar una clase, conectar tu nube y revisar la grabación.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://api.fontshare.com https://fonts.googleapis.com; font-src https://cdn.fontshare.com https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf8f0">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15171a">
+  <link rel="icon" href="assets/tiza-icon.svg" type="image/svg+xml">
+  <script src="theme.js"></script>
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="doc">
+  <a class="skip" href="#main">Ir al contenido</a>
+  <header class="nav">
+    <div class="nav-in">
+      <a class="logo" href="es/" aria-label="Tiza"><img src="assets/tiza-wordmark.svg" alt="tiza" width="75" height="28" class="logo-light"><img src="assets/tiza-wordmark-dark.svg" alt="" width="75" height="28" class="logo-dark" aria-hidden="true"></a>
+      <a class="btn btn-primary btn-sm" href="es/#download">Descargar</a>
+    </div>
+  </header>
+  <main class="doc-body" id="main">
+    <nav class="doc-nav" aria-label="Navegación principal">
+      <a href="es/">Inicio</a>
+      <a href="./" hreflang="en" lang="en">English</a>
+    </nav>
+    <h1>Guía para estudiantes</h1>
+<p>Tiza entra a tus clases online (Zoom, Microsoft Teams o Google Meet) a la hora indicada, las graba en vídeo y audio y sube la grabación a tu nube (Google Drive, OneDrive, Dropbox o iCloud Drive).</p>
+<p>Tiza antes se llamaba ClassRecorder.</p>
+<h2>1. Instalar</h2>
+<ul>
+<li><strong>Mac:</strong> abre el archivo <code>.dmg</code> y arrastra Tiza a Aplicaciones. La primera vez, macOS avisa porque la app no está firmada: abre <strong>Configuración del Sistema → Privacidad y seguridad</strong>, baja hasta el aviso y pulsa <strong>Abrir de todos modos</strong> (en macOS 15 o posterior el clic derecho → Abrir ya no basta).</li>
+<li><strong>Windows:</strong> ejecuta el instalador. Si aparece un aviso de SmartScreen, pulsa <strong>Más información &gt; Ejecutar de todas formas</strong>.</li>
+</ul>
+<h2>2. Añadir una clase</h2>
+<ol>
+<li>En la pestaña <strong>Clases</strong>, pulsa <strong>+ Nueva clase</strong>.</li>
+<li>Escribe el nombre y pega el <strong>enlace</strong> de la reunión (Zoom, Teams o Meet).</li>
+<li>Elige los días y la hora de inicio y la duración, o una fecha única.</li>
+<li>Guarda. Verás la próxima sesión en la tarjeta de la clase.</li>
+</ol>
+<p>Puedes pausar, editar o eliminar la clase, o usar <strong>Grabar ahora</strong> para probar.</p>
+<h3>Si tus clases de Zoom están en Canvas (recomendado)</h3>
+<p>Conecta Canvas una vez (sección 3) y, en lugar de pegar el enlace:</p>
+<ol>
+<li>En <strong>Nueva clase</strong>, pulsa <strong>Elegir de Canvas</strong>.</li>
+<li>Elige el curso y, después, la reunión de Zoom. La app abre sola la herramienta Zoom del curso dentro de Canvas.</li>
+<li>La app rellena el enlace de la reunión, con el código de acceso incluido. No copias ni pegas nada.</li>
+<li>En una clase nueva rellena también el nombre, los días y la hora de inicio (en la hora de tu equipo), y los marca con «de Canvas». Revísalos: la hora que tiene Zoom puede no ser la de la clase. Canvas no dice a qué hora termina, así que la hora de fin la pones tú. Lo que ya hayas escrito en ese momento no se cambia, y al editar una clase guardada solo se actualiza el enlace (la nota te dice qué indica Canvas).</li>
+</ol>
+<p><strong>Antes de cada clase</strong> (desde unos 40 minutos antes), la app comprueba en Canvas que el enlace y el código siguen siendo los mismos, y los actualiza si el profesor los cambió. La tarjeta de la clase puede avisarte de dos cosas:</p>
+<ul>
+<li>«Canvas cerró la sesión…» o «Canvas ya no acepta tu token…»: la app usa el último enlace guardado. Pulsa <strong>Reconectar</strong> para volver a iniciar sesión, o <strong>Pegar token nuevo</strong> si usas un token.</li>
+<li>La reunión ya no aparece en Canvas: edita la clase y vuelve a elegirla con <strong>Elegir de Canvas</strong>.</li>
+</ul>
+<h3>Si prefieres pegar el enlace de Canvas</h3>
+<p>El enlace de Zoom que da Canvas (o Blackboard) empieza por <code>applications.zoom.us/lti/…</code> y <strong>solo funciona una vez</strong>: al abrirlo en el navegador, se gasta. Por eso <strong>no lo abras</strong>: en Canvas, haz clic derecho sobre <strong>Join</strong> (Unirse) y elige <strong>Copiar enlace</strong>, y pégalo en Tiza. Al guardar verás «Comprobando el enlace…» y la app lo cambia por el enlace fijo de la clase, con el código de acceso incluido. No tienes que escribir el código.</p>
+<p>Si ves «Este enlace de Canvas ya se usó: solo funciona una vez y se gasta al abrirlo. Cópialo en Canvas sin abrirlo y pégalo aquí, o conecta Canvas en Cuentas y usa «Elegir de Canvas».», la clase queda guardada pero sin código. Lo más fácil es editarla y usar <strong>Elegir de Canvas</strong>; si no, copia el enlace de nuevo sin abrirlo, o escribe el código a mano en <strong>Código de acceso</strong>.</p>
+<h2>3. Iniciar sesión en las plataformas (una sola vez)</h2>
+<p>En <strong>Cuentas &gt; Plataformas de clase</strong>, pulsa <strong>Iniciar sesión</strong> en Zoom, Teams y/o Meet y entra con tu cuenta (también funciona el acceso de tu universidad). La sesión se recuerda; Tiza no guarda tus contraseñas.</p>
+<h3>Conectar Canvas (opcional)</h3>
+<p><strong>Con un token de acceso (recomendado):</strong> así no tienes que volver a entrar cada vez que se reinicia la app.</p>
+<ol>
+<li>En Canvas (en el navegador), abre <strong>Cuenta &gt; Configuración</strong> y pulsa <strong>+ Nuevo token de acceso</strong>.</li>
+<li>Escribe un propósito (por ejemplo, <code>Tiza</code>), pon una fecha de caducidad (por ejemplo, el final del curso) y pulsa <strong>Generar token</strong>. Copia el token que aparece: Canvas solo lo muestra una vez.</li>
+<li>En Tiza, en <strong>Cuentas &gt; Canvas</strong>, revisa la dirección (viene escrita <code>mdc.instructure.com</code>; cámbiala si tu universidad usa otra), pega el token y pulsa <strong>Conectar con token</strong>.</li>
+<li>Verás «Conectado a … con tu token · caduca el …». El token se guarda cifrado en este equipo y no se muestra nunca. Es una llave de tu cuenta de Canvas: no lo compartas ni lo guardes en otro sitio, y si tu equipo guarda un historial del portapapeles, bórralo de ahí después de pegarlo.</li>
+</ol>
+<p>Unos días antes de que caduque, la app te lo recuerda; si caduca (o lo borras en Canvas), te avisa antes de tu próxima clase de Canvas. Crea uno nuevo y pégalo con <strong>Pegar token nuevo</strong> (en el aviso) o <strong>Usar otro token</strong> (en Cuentas). Mientras tanto se usa el último enlace guardado.</p>
+<p><strong>Sin token:</strong> pulsa <strong>Iniciar sesión en el navegador</strong>. Se abre una ventana de la app con la página de inicio de sesión de tu universidad; entra con tu cuenta de siempre (Tiza nunca ve ni guarda tu contraseña) y la ventana se cierra sola. Esta sesión se cierra cada vez que se reinicia la app.</p>
+<p>Para salir, pulsa <strong>Desconectar</strong> en la misma sección. Si usas un token, la app te pide confirmación y lo <strong>borra también en Canvas</strong>: deja de funcionar en todos los sitios donde lo uses, no solo aquí. Si Canvas no responde (por ejemplo, sin conexión), la app lo olvida igualmente en este equipo y te dice que lo borres tú en Canvas (<strong>Cuenta &gt; Configuración &gt; Integraciones aprobadas</strong> —«Approved Integrations» si Canvas está en inglés—: abre el token y pulsa <strong>Eliminar</strong>). Las clases ya guardadas conservan sus enlaces.</p>
+<p>En <strong>Ajustes</strong> escribe tu nombre: se usa si la clase te deja entrar como invitado. Google a veces bloquea el inicio de sesión en apps de escritorio; si pasa, Meet entra como invitado.</p>
+<h2>4. Conectar la nube y elegir destinos</h2>
+<ol>
+<li>En <strong>Cuentas &gt; Nube</strong>, pulsa <strong>Conectar</strong> en tu servicio. Se abre el navegador para que autorices el acceso. Si ves &quot;No disponible&quot;, esa nube no está configurada en tu versión de la app.</li>
+<li>En <strong>Ajustes &gt; Subir automáticamente a</strong>, marca los destinos (solo se pueden marcar las nubes ya conectadas).</li>
+<li>Cada clase tiene su propio <strong>Guardar en</strong>: <strong>Como en Ajustes</strong>, <strong>Solo en este equipo</strong> o <strong>En la nube</strong> (eliges cuáles). Google Drive aparece siempre: si no se puede usar, la app dice por qué, y si falta conectarla puedes pulsar <strong>Conectar</strong> ahí mismo sin perder lo que escribiste.</li>
+<li>Cada clase también puede tener su <strong>Calidad de grabación</strong>: <strong>Estándar</strong> o <strong>Más pequeña</strong>, con lo que ocupa cada hora. Si no la cambias, se usa la de Ajustes.</li>
+</ol>
+<p>Dónde queda el archivo: en la carpeta <code>Tiza/&lt;nombre de la clase&gt;</code>. En Dropbox, dentro de <code>Apps/&lt;nombre de la app&gt;/Tiza/&lt;nombre de la clase&gt;</code>. iCloud Drive: la app copia el archivo a la carpeta de iCloud y el sistema lo sincroniza.</p>
+<h2>5. Que no se pierda ninguna clase</h2>
+<p><strong>Antes de tu primera clase:</strong> en <strong>Ajustes → Probar grabación</strong>, la app graba 8 segundos de una página de prueba y abre la carpeta con el archivo. Ábrelo: deberías ver un círculo moviéndose y oír un tono suave. Si no se oye o no se ve, revisa los permisos (sección 8) antes de confiar en la grabación automática.</p>
+<ul>
+<li>En <strong>Ajustes</strong>, activa <strong>Abrir Tiza al iniciar sesión</strong>.</li>
+<li>Deja el portátil <strong>encendido, enchufado y sin suspenderse</strong> a la hora de la clase. Si está dormido o apagado, no puede grabar.</li>
+<li>Si cierras la ventana, la app sigue funcionando en la barra de menús (Mac) o la bandeja del sistema (Windows).</li>
+</ul>
+<h2>6. Qué pasa durante la clase</h2>
+<ul>
+<li>Un par de minutos antes, se abre una ventana con el título <strong>● Nombre de la clase · Tiza</strong> y entra a la reunión. Si hace falta pulsar algo (por ejemplo, que el profesor te admita), hazlo tú en esa ventana.</li>
+<li>No cierres esa ventana mientras dura la clase (si la cierras, la grabación se detiene). Puedes seguir usando el ordenador.</li>
+<li>Se graba solo esa ventana (la clase), no el resto de tu pantalla. La reunión nunca puede usar tu cámara, y tampoco tu micrófono salvo que actives <strong>Permitir el micrófono dentro de la reunión</strong> (úsalo solo si una clase no se oye sin él).</li>
+<li>Para parar antes: pulsa <strong>Detener</strong> en la app, o usa el icono de Tiza en la barra de menús/bandeja y elige <strong>Detener grabación</strong>.</li>
+<li>Se detiene sola cuando la reunión termina o pasan unos minutos de la hora de fin.</li>
+<li>Al terminar recibirás notificaciones: grabación guardada y clase subida.</li>
+</ul>
+<h2>7. Dónde están las grabaciones</h2>
+<ul>
+<li>En la pestaña <strong>Grabaciones</strong> ves el estado de cada clase. <strong>Mostrar</strong> abre la carpeta local.</li>
+<li>Por defecto, la carpeta es <code>Tiza</code> dentro de tu carpeta de Vídeos (Películas en Mac); puedes cambiarla en <strong>Ajustes</strong>.</li>
+<li>Si desmarcas <strong>Conservar copia local después de subir</strong>, el archivo local se borra cuando todas las subidas terminan bien.</li>
+<li>Si una subida falla (por ejemplo, sin internet), pulsa <strong>Reintentar</strong> en esa fila.</li>
+</ul>
+<h2>8. Permisos de macOS</h2>
+<ul>
+<li><strong>Micrófono:</strong> solo si activas <strong>Incluir mi micrófono en la grabación</strong>. macOS te pedirá permiso; acéptalo. Si lo negaste, ve a Ajustes del Sistema &gt; Privacidad y seguridad &gt; Micrófono y activa Tiza.</li>
+<li>Tiza no usa la cámara: si macOS la pidiera, puedes rechazarlo.</li>
+<li>Si no quieres que se oiga tu voz, deja el micrófono desactivado: se grabará solo lo que suene en la clase.</li>
+</ul>
+<h2>9. Consentimiento: graba solo con permiso</h2>
+<p>Antes de grabar, asegúrate de tener permiso del profesor y de cumplir las normas de tu universidad. En muchos lugares también hace falta el consentimiento de los demás participantes. Usa las grabaciones solo para estudiar y no las compartas sin permiso. Tiza no sustituye ese consentimiento: la responsabilidad es tuya.</p>
+<p>Más información sobre qué datos guarda la app y cuáles salen de tu ordenador: <a href="privacidad.html">Política de privacidad</a>.</p>
+  </main>
+  <footer class="foot ch-ink">
+    <div class="wrap foot-in">
+      <p class="small">El logotipo de tiza usa la tipografía Clash Display y el texto, Switzer; ambas son de Indian Type Foundry (ITF), vía Fontshare. Los contadores, en Geist Mono.</p>
+      <p class="small">© 2026 Tiza</p>
+    </div>
+  </footer>
+</body>
+</html>

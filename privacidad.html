@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidad · Tiza</title>
+  <meta name="description" content="Qué datos guarda Tiza, qué sale de tu computadora y cómo borrarlo todo. Con resumen en inglés.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://api.fontshare.com https://fonts.googleapis.com; font-src https://cdn.fontshare.com https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbf8f0">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15171a">
+  <link rel="icon" href="assets/tiza-icon.svg" type="image/svg+xml">
+  <script src="theme.js"></script>
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="doc">
+  <a class="skip" href="#main">Ir al contenido</a>
+  <header class="nav">
+    <div class="nav-in">
+      <a class="logo" href="es/" aria-label="Tiza"><img src="assets/tiza-wordmark.svg" alt="tiza" width="75" height="28" class="logo-light"><img src="assets/tiza-wordmark-dark.svg" alt="" width="75" height="28" class="logo-dark" aria-hidden="true"></a>
+      <a class="btn btn-primary btn-sm" href="es/#download">Descargar</a>
+    </div>
+  </header>
+  <main class="doc-body" id="main">
+    <nav class="doc-nav" aria-label="Navegación principal">
+      <a href="es/">Inicio</a>
+      <a href="./" hreflang="en" lang="en">English</a>
+    </nav>
+    <h1>Política de privacidad de Tiza</h1>
+<p>Última actualización: 30 de octubre de 2026</p>
+<p>Tiza (antes ClassRecorder) es una aplicación de escritorio (macOS y Windows) que entra a tus clases online (Zoom, Microsoft Teams o Google Meet) a la hora programada, las graba y, si tú lo activas, sube la grabación a tu propia nube. Este documento explica, sin letra pequeña, qué datos existen, dónde están y qué sale (y qué no sale) de tu ordenador.</p>
+<p><strong>Resumen corto:</strong> todo se guarda en tu ordenador. Tiza no tiene servidores, ni cuentas propias, ni analítica, ni telemetría. Lo único que sale de tu equipo son las subidas que tú activas, y van directas a tu cuenta de Google Drive, OneDrive o Dropbox.</p>
+<h2>1. Qué datos existen y dónde viven</h2>
+<p>Todo vive en la carpeta de datos de la app (rutas exactas en la sección 7) o en la carpeta de grabaciones que tú eliges.</p>
+<div class="table-scroll" role="region" tabindex="0"><table>
+<thead><tr><th>Dato</th><th>Dónde</th><th>Detalle</th></tr></thead>
+<tbody><tr><td data-label="Dato">Lista de clases, horarios y enlaces</td><td data-label="Dónde"><code>config.json</code> (carpeta de datos de la app)</td><td data-label="Detalle">Nombre, enlace de la reunión, días y hora. <strong>Si el enlace incluye un código de acceso (por ejemplo <code>?pwd=...</code> en Zoom), ese código se guarda tal cual, en texto sin cifrar.</strong></td></tr><tr><td data-label="Dato">Ajustes</td><td data-label="Dónde"><code>config.json</code></td><td data-label="Detalle">Tu nombre para entrar como invitado, carpeta de grabaciones, destinos de subida, opciones de micrófono y de despertar el equipo.</td></tr><tr><td data-label="Dato">Historial de grabaciones</td><td data-label="Dónde"><code>config.json</code></td><td data-label="Detalle">Nombre de la clase, fechas, ruta del archivo, tamaño, estado y errores de subida. Se conservan como máximo las últimas 200 entradas.</td></tr><tr><td data-label="Dato">Grabaciones</td><td data-label="Dónde">Tu disco</td><td data-label="Detalle">Por defecto, carpeta <code>Tiza</code> dentro de Vídeos (Películas en Mac), o la que elijas en Ajustes. Mientras se graba existe un archivo temporal <code>.part</code>.</td></tr><tr><td data-label="Dato">Sesiones de Zoom/Teams/Meet</td><td data-label="Dónde">Perfil de navegador local de la app</td><td data-label="Detalle">Cookies y datos de sesión del navegador integrado, para no tener que iniciar sesión en cada clase. <strong>Tiza no guarda tus contraseñas</strong>: las escribes en las páginas oficiales de cada plataforma.</td></tr><tr><td data-label="Dato">Sesión de Canvas (opcional)</td><td data-label="Dónde">Sesión de navegador propia de la app, en tu ordenador</td><td data-label="Detalle">Cookies de Canvas y del inicio de sesión de tu universidad, cifradas por el almacén de cookies del sistema operativo. Es una sesión aparte, <strong>no compartida con la ventana de la reunión</strong>. Solo existe si pulsas <strong>Conectar</strong> en Cuentas &gt; Canvas. <strong>Tiza no guarda tu contraseña.</strong></td></tr><tr><td data-label="Dato">Datos de Canvas por clase</td><td data-label="Dónde"><code>config.json</code></td><td data-label="Detalle">Si eliges una clase con <strong>Elegir de Canvas</strong>: el identificador del curso y de la reunión, y el enlace de la reunión con su código (como arriba).</td></tr><tr><td data-label="Dato">Conexiones con la nube</td><td data-label="Dónde">Carpeta <code>tokens</code> de la app</td><td data-label="Detalle">Un archivo cifrado por proveedor (ver sección 3).</td></tr><tr><td data-label="Dato">Preferencias de la interfaz</td><td data-label="Dónde">Almacenamiento local de la ventana de la app</td><td data-label="Detalle">Solo marcas como &quot;prueba de grabación realizada&quot;, &quot;ocultar guía inicial&quot; o &quot;consentimiento aceptado&quot;. Nada sobre ti ni sobre tus clases.</td></tr></tbody>
+</table></div>
+<p>Nada de esto se envía a ningún servidor de Tiza, porque no existe ninguno.</p>
+<h2>2. Lo que no hacemos</h2>
+<p>El código de la app no incluye analítica, telemetría, informes de errores, publicidad ni actualización automática. Las únicas conexiones de red que hace la propia app son:</p>
+<ul>
+<li>hacia el proveedor de nube que hayas conectado (inicio de sesión, renovación de permisos y subida), y</li>
+<li>hacia la página de la reunión (Zoom, Teams o Meet), que se carga en la ventana de la clase igual que en un navegador, y</li>
+<li>si conectas Canvas, hacia Canvas y Zoom (ver sección 3 bis).</li>
+</ul>
+<p>No hay cuentas de Tiza, ni correo, ni identificadores de usuario.</p>
+<h2>3. Conexión con tu nube y permisos solicitados</h2>
+<p>Al pulsar <strong>Conectar</strong>, el inicio de sesión se hace en <strong>tu navegador del sistema</strong> (no dentro de la app) con el flujo estándar OAuth con PKCE. El navegador vuelve a la app mediante una dirección local (<code>127.0.0.1</code> / <code>localhost</code>, puerto 53682 por defecto) que solo está abierta mientras dura ese proceso. Tiza nunca ve tu contraseña de Google, Microsoft ni Dropbox.</p>
+<p>Permisos que pide a cada proveedor:</p>
+<div class="table-scroll" role="region" tabindex="0"><table>
+<thead><tr><th>Proveedor</th><th>Permiso (scope)</th><th>Qué permite</th></tr></thead>
+<tbody><tr><td data-label="Proveedor">Google Drive</td><td data-label="Permiso (scope)"><code>https://www.googleapis.com/auth/drive.file</code></td><td data-label="Qué permite">Crear y gestionar <strong>solo los archivos creados por la propia app</strong>. No puede ver el resto de tu Drive.</td></tr><tr><td data-label="Proveedor">OneDrive</td><td data-label="Permiso (scope)"><code>Files.ReadWrite</code> y <code>offline_access</code></td><td data-label="Qué permite">Leer y escribir archivos en tu OneDrive (permiso estándar de Microsoft Graph) y mantener la conexión sin volver a iniciar sesión. La app solo crea la carpeta <code>Tiza</code> y sube tus grabaciones.</td></tr><tr><td data-label="Proveedor">Dropbox</td><td data-label="Permiso (scope)"><code>files.content.write</code></td><td data-label="Qué permite">Escribir archivos. Dropbox usa acceso de &quot;carpeta de app&quot;: los archivos van a <code>Apps/&lt;nombre de la app&gt;/Tiza/&lt;clase&gt;/</code>.</td></tr><tr><td data-label="Proveedor">iCloud Drive</td><td data-label="Permiso (scope)">Ninguno</td><td data-label="Qué permite">iCloud no ofrece una API pública. La app solo copia el archivo a la carpeta local de iCloud Drive de tu ordenador y es el sistema operativo quien lo sincroniza.</td></tr></tbody>
+</table></div>
+<p>Los permisos de acceso (tokens) se guardan <strong>cifrados con el almacén de claves del sistema</strong> (Llavero de macOS / DPAPI de Windows), en archivos <code>.bin</code> dentro de la carpeta <code>tokens</code>. Solo se envían al proveedor al que pertenecen. Si el sistema no tiene cifrado disponible, la app no los guarda.</p>
+<h2>3 bis. Conexión con Canvas (opcional)</h2>
+<p>Al pulsar <strong>Conectar</strong> en Cuentas &gt; Canvas, se abre una ventana de la app con la página de inicio de sesión de tu universidad. Escribes tu contraseña ahí, en la página de la universidad: Tiza no la ve ni la guarda. La ventana se cierra sola al terminar.</p>
+<ul>
+<li><strong>Dónde queda la sesión:</strong> en una sesión de navegador propia de la app, en tu ordenador, cifrada por el almacén de cookies del sistema operativo. No se comparte con la ventana de la reunión.</li>
+<li><strong>Qué lee la app:</strong> la lista de tus cursos activos (nombre e identificador), las pestañas de un curso para encontrar la herramienta Zoom, y la lista de reuniones de esa herramienta (tema, hora e identificador de la reunión).</li>
+<li><strong>Qué guarda:</strong> por cada clase, solo el identificador del curso y de la reunión, más el enlace de la reunión con su código de acceso (como siempre, en <code>config.json</code>). Los enlaces de acceso de un solo uso de Zoom nunca se guardan ni se escriben en registros.</li>
+<li><strong>Cuándo consulta:</strong> al elegir una clase y, desde unos 40 minutos antes de cada clase, para comprobar si el enlace o el código han cambiado.</li>
+<li><strong>Qué sale del equipo:</strong> nada, salvo las peticiones a Canvas y a Zoom.</li>
+<li><strong>Qué ve tu universidad:</strong> cada consulta abre la herramienta Zoom del curso con tu cuenta, como si la abrieras tú. Por eso aparece en los registros de actividad de Canvas (que el profesorado puede ver) y en los de Zoom.</li>
+<li><strong>Lo que no queda en el disco:</strong> la sesión de Canvas de la app no guarda caché de páginas, y los datos que deja la herramienta Zoom (cookies y almacenamiento) se borran después de cada consulta.</li>
+</ul>
+<p>Para quitarla, pulsa <strong>Desconectar</strong> (sección 7).</p>
+<h2>4. Qué sale de tu ordenador</h2>
+<p>Únicamente:</p>
+<ol>
+<li>Las grabaciones que subes a la nube, <strong>solo si marcas ese destino</strong> (en Ajustes o en la clase), directamente a tu cuenta del proveedor.</li>
+<li>Las peticiones necesarias para iniciar sesión y renovar los permisos con ese mismo proveedor.</li>
+<li>El tráfico normal de la reunión: la ventana de la clase conecta con Zoom/Teams/Meet, que tratan tus datos según sus propias políticas de privacidad.</li>
+<li>Si conectas Canvas, las peticiones a Canvas y a Zoom descritas en la sección 3 bis, y a nadie más.</li>
+</ol>
+<p>Si no conectas ninguna nube, las grabaciones no salen de tu equipo.</p>
+<h2>5. Cámara, micrófono y qué se captura</h2>
+<ul>
+<li><strong>Cámara: nunca.</strong> La reunión no puede usarla y la app no solicita acceso a la cámara en macOS.</li>
+<li><strong>Micrófono: solo si tú lo decides</strong>, con dos opciones independientes en Ajustes:
+<ul>
+<li><strong>Grabar también mi voz</strong>: mezcla tu micrófono en la grabación. Se graba localmente en tu equipo; no se transmite a la reunión.</li>
+<li><strong>Permitir el micrófono dentro de la reunión</strong>: deja que la página de Zoom/Teams/Meet use tu micrófono (la app lo silencia al entrar). Solo se concede a páginas de esas plataformas. Si está desactivado, se deniega.</li>
+</ul></li>
+<li><strong>Qué se graba:</strong> únicamente la imagen y el sonido de la ventana de la clase. No se captura el resto de tu pantalla, otras ventanas, notificaciones ni sonidos del sistema.</li>
+<li>Cualquier otro permiso que pida una página (ubicación, notificaciones, etc.) se deniega, salvo pantalla completa y copiar al portapapeles, que son inocuos.</li>
+</ul>
+<p>Con el micrófono desactivado, tu voz no queda registrada. Aun así, la grabación contiene lo que digan el profesor y los compañeros.</p>
+<h2>6. Despertar el equipo antes de clase (opcional)</h2>
+<p>Está desactivado por defecto (<strong>Ajustes → Despertar el equipo antes de clase</strong>). Si lo activas, la app programa en el sistema operativo un despertar 3 minutos antes de entrar a cada clase, para los próximos 7 días:</p>
+<ul>
+<li><strong>Windows:</strong> crea tareas programadas en la carpeta <code>\ClassRecorder\</code> del Programador de tareas (nombre anterior de la app, que se mantiene a propósito; nombres tipo <code>Wake-AAAAMMDDHHMM</code>), a tu nombre y sin permisos de administrador. Cada tarea despierta el equipo y abre la app oculta. La descripción de la tarea incluye el nombre de la clase.</li>
+<li><strong>macOS:</strong> usa <code>pmset schedule wake</code>. macOS solo lo permite a un administrador, así que te pedirá la contraseña en la ventana oficial del sistema; Tiza no la ve ni la guarda. Solo cancela los despertares que él mismo programó.</li>
+</ul>
+<p><strong>Cómo desactivarlo:</strong> desmarca la opción en Ajustes. En Windows las tareas se eliminan solas; en macOS pulsa <strong>Cancelar despertares</strong> (te pedirá la contraseña de nuevo). En macOS puedes ver los despertares con <code>pmset -g sched</code> en Terminal. En Windows, el desinstalador borra también esas tareas; en macOS no hay desinstalador, así que cancela los despertares <strong>antes de borrar</strong> la app.</p>
+<h2>7. Conservación y control sobre tus datos</h2>
+<p>Los datos permanecen en tu equipo hasta que los borres. Tiza no los elimina por su cuenta, salvo el archivo local cuando desmarcas <strong>Conservar copia local después de subir</strong> y todas las subidas terminan bien.</p>
+<ul>
+<li><strong>Grabaciones:</strong> en <strong>Grabaciones</strong>, pulsa <strong>Eliminar</strong> (y confirma) para borrar el vídeo de tu equipo y quitarlo del historial. Las copias que ya estén en tu nube se conservan: bórralas allí si tampoco las quieres.</li>
+<li><strong>Clases:</strong> <strong>Eliminar clase</strong> quita la clase y su horario (y con ella el enlace guardado). Las entradas del historial de esa clase permanecen en <code>config.json</code> hasta que se desplacen por el límite de 200 o borres la carpeta de datos.</li>
+<li><strong>Nube:</strong> en <strong>Cuentas → Nube</strong>, pulsa <strong>Desconectar</strong>. Esto borra el permiso guardado en tu equipo y, en Google Drive y Dropbox, además lo revoca en el proveedor. Microsoft no permite revocar el permiso de una sola app desde fuera: para OneDrive, retíralo en la configuración de privacidad de tu cuenta Microsoft (account.live.com/consent/Manage o myapps.microsoft.com).</li>
+<li><strong>Plataformas de clase:</strong> en <strong>Cuentas → Plataformas de clase</strong>, pulsa <strong>Cerrar sesión</strong> en Zoom, Teams o Meet: la app borra las cookies y los datos de ese sitio de su perfil de navegador.</li>
+<li><strong>Canvas:</strong> en <strong>Cuentas &gt; Canvas</strong>, pulsa <strong>Desconectar</strong>: la app cierra la sesión y borra las cookies de Canvas de su navegador. Las clases guardadas conservan sus enlaces; si quieres quitarlos, elimina la clase.</li>
+<li><strong>Desinstalar y borrar todo:</strong> cierra la app (menú de la barra o bandeja → Salir), desactiva antes los despertares, desinstala y elimina la carpeta de datos:
+<ul>
+<li>macOS: arrastra Tiza a la Papelera y borra <code>~/Library/Application Support/Tiza</code> (o <code>~/Library/Application Support/ClassRecorder</code> si usaste la app antes de que cambiara de nombre).</li>
+<li>Windows: desinstala desde Configuración → Aplicaciones y borra <code>%APPDATA%\Tiza</code> (normalmente <code>C:\Users\&lt;tu usuario&gt;\AppData\Roaming\Tiza</code>), o <code>%APPDATA%\ClassRecorder</code> si usaste la app antes de que cambiara de nombre.</li>
+</ul></li>
+</ul>
+<p>Esa carpeta contiene <code>config.json</code>, <code>tokens</code> y el perfil de navegador con las sesiones. Tus grabaciones están aparte, en la carpeta que elegiste; bórralas si no las quieres. Si activaste <strong>Abrir Tiza al iniciar sesión</strong>, desmárcalo antes de desinstalar.</p>
+<h2>8. Responsabilidad y consentimiento</h2>
+<p>Grabar una clase puede requerir permiso, y las reglas cambian según el país y el estado: en unos basta el consentimiento de una parte (por ejemplo, el tuyo) y en otros hace falta el de <strong>todos</strong> los participantes. Además, tu universidad y cada profesor pueden prohibir o condicionar la grabación.</p>
+<ul>
+<li>Graba solo con permiso del profesor y cumpliendo las normas de tu universidad y la ley aplicable.</li>
+<li>Usa las grabaciones solo para estudiar; no las compartas sin permiso de las personas que salen o se oyen en ellas.</li>
+<li>Las condiciones de Zoom, Microsoft Teams y Google Meet también se aplican y pueden avisar a los participantes de que alguien ha entrado o de que se graba.</li>
+<li>Tiza no obtiene consentimiento por ti. <strong>La responsabilidad de grabar es tuya.</strong></li>
+</ul>
+<h2>9. Este sitio web</h2>
+<p>La página de Tiza es un sitio estático sin cuentas, cookies, analítica ni rastreadores. Las únicas conexiones que hace tu navegador al abrirla, además de la del propio sitio, son a Fontshare (<code>api.fontshare.com</code>, <code>cdn.fontshare.com</code>) y Google Fonts (<code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>) para cargar las tipografías; esos servicios reciben tu dirección IP, el user agent del navegador y la dirección de la página (Referer), según sus propias políticas. El tema claro/oscuro que elijas se guarda solo en tu navegador; el idioma es un enlace y no guarda nada.</p>
+<h2>10. Cambios y contacto</h2>
+<p>Si esta política cambia, actualizaremos la fecha de arriba. Para dudas sobre privacidad: victor.cuerdo@me.com.</p>
+<hr>
+<section lang="en"><h2>Summary in English</h2>
+<ul>
+<li>Tiza (previously called ClassRecorder) has no servers, accounts, analytics, telemetry or auto-update. Everything is stored locally.</li>
+<li>Local data: class list/schedule/links (passcodes inside links are kept in plain text), settings and history in <code>config.json</code>; recordings on your disk; Zoom/Teams/Meet sign-in sessions as cookies in a local browser profile (passwords are never stored).</li>
+<li>Cloud tokens are encrypted with the OS keystore (Keychain/DPAPI) and sent only to their provider. Scopes: Google <code>drive.file</code>; OneDrive <code>Files.ReadWrite</code> + <code>offline_access</code>; Dropbox <code>files.content.write</code>; iCloud uses the local iCloud Drive folder, no scope.</li>
+<li>Optional Canvas connection: you sign in to your university's page in an app window (the app never sees the password); the session cookies live in a separate app-only browser session, OS-encrypted, not shared with the meeting window. The app reads only active courses, the course tabs (to find the Zoom tool) and the Zoom tool's meeting list (topic, time, meeting id). Per class it stores the course id, meeting id and the meeting link with its passcode in <code>config.json</code>; single-use Zoom join tokens are never stored or logged. Only Canvas and Zoom are contacted. &quot;Desconectar&quot; removes the Canvas cookies.</li>
+<li>Only uploads you enable leave your computer, straight to your own cloud account; sign-in uses the system browser.</li>
+<li>Camera: never. Microphone: only if you enable &quot;Grabar también mi voz&quot; or &quot;Permitir el micrófono dentro de la reunión&quot;. Only the class window's image and sound are captured.</li>
+<li>Optional wake-before-class: Windows scheduled tasks in <code>\ClassRecorder\</code> (the app's former name, kept on purpose), macOS <code>pmset schedule wake</code> (asks for your password). Turn it off in Settings, before uninstalling.</li>
+<li>Delete data: &quot;Eliminar&quot; in Recordings deletes a video locally (cloud copies stay); &quot;Desconectar&quot; removes a cloud token (and revokes it at Google/Dropbox); &quot;Cerrar sesión&quot; signs out of Zoom/Teams/Meet; then delete the data folder (<code>~/Library/Application Support/Tiza</code> or <code>%APPDATA%\Tiza</code>; <code>.../ClassRecorder</code> if you used the app before it was renamed).</li>
+<li>Recording laws vary (one-party vs all-party consent); follow your university's and instructor's rules. You are responsible.</li>
+<li>The website is static: no accounts, cookies, analytics or trackers; it only loads fonts from Fontshare and Google Fonts.</li>
+<li>Contact: victor.cuerdo@me.com.</li>
+</ul></section>
+  </main>
+  <footer class="foot ch-ink">
+    <div class="wrap foot-in">
+      <p class="small">El logotipo de tiza usa la tipografía Clash Display y el texto, Switzer; ambas son de Indian Type Foundry (ITF), vía Fontshare. Los contadores, en Geist Mono.</p>
+      <p class="small">© 2026 Tiza</p>
+    </div>
+  </footer>
+</body>
+</html>
