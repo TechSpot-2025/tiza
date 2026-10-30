@@ -8,4 +8,4 @@ Google Meet), records it and uploads the recording to the student's own cloud dr
   dmg, Windows x64 installer). Each release lists the SHA-256 of its files.
 
 This repository holds only the published website (rendered HTML) and the release files. The source code lives
-in a separate repository. Contact: victor.cuerdo@me.com.
+in a separate repository. A contact email will be published here during the beta.
