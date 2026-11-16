@@ -45,36 +45,67 @@
     }
     onCopied(await copyText(url), url);
   }
+  // Status lines: emptied first so a repeated message is announced again; a success clears itself, a failure
+  // (which may carry an address to copy by hand) stays.
+  const say = (el, text, keep) => {
+    if (!el) return;
+    clearTimeout(el.sayWrite);
+    clearTimeout(el.sayClear);
+    el.textContent = '';
+    el.sayWrite = setTimeout(() => { el.textContent = text; }, 60);
+    if (!keep) el.sayClear = setTimeout(() => { el.textContent = ''; }, 10000);
+  };
 
   // Every CTA group: promote the detected OS, link the other one as text, hand phones a share/copy action.
+  // data-compact = the nav pill; data-quiet = a next-step text link at the end of a section.
   $$('[data-cta]').forEach((group) => {
     const compact = group.hasAttribute('data-compact');
-    const buttons = $$('.btn[data-os]', group);
+    const quiet = group.hasAttribute('data-quiet');
+    const links = $$('[data-os]', group);
     if (os === 'linux') {
-      if (!compact) { const n = document.createElement('p'); n.className = 'note'; n.textContent = t('linux_note'); group.append(n); }
-      return; // both buttons stay, equal weight
+      if (compact) {
+        // Neither build is this visitor's, and below 1180px the nav keeps only its first pill (the Mac one):
+        // at every width, one neutral "Download" link to the panel instead.
+        links.slice(1).forEach((b) => b.remove());
+        links[0].removeAttribute('data-os');
+        links[0].href = '#download';
+        links[0].textContent = t('dl_h3');
+      } else if (!quiet) {
+        const n = document.createElement('p'); n.className = 'note'; n.textContent = t('linux_note'); group.append(n);
+      }
+      return; // elsewhere both links stay, equal weight
     }
     if (os === 'other') {
-      buttons.forEach((b) => b.remove());
-      const note = document.createElement('p');
-      note.className = compact ? 'sr-only' : 'note';
+      links.forEach((b) => b.remove());
+      const note = document.createElement(quiet ? 'span' : 'p');
+      note.className = compact ? 'sr-only' : quiet ? 'status small' : 'note';
       note.setAttribute('role', 'status');
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = compact ? 'btn btn-primary btn-sm' : 'btn btn-primary';
+      btn.className = quiet ? 'linklike' : compact ? 'btn btn-primary btn-sm' : 'btn btn-primary';
       btn.textContent = t('cta_mobile');
-      btn.addEventListener('click', () => shareOrCopy(t('share_text'), (ok) => { note.textContent = ok ? t('cta_mobile_copied') : t('cta_mobile_fail'); }));
-      group.append(btn, note);
-      if (!compact) note.textContent = t('cta_mobile_note');
+      btn.addEventListener('click', () => shareOrCopy(t('share_text'), (ok) => say(note, ok ? t('cta_mobile_copied') : t('cta_mobile_fail'), true)));
+      group.append(btn);
+      if (!compact && !quiet) {
+        // A second way home that needs no share sheet and no clipboard: a draft email to yourself.
+        const mail = document.createElement('a');
+        mail.className = 'other';
+        const body = `${t('share_text')}\r\n\r\n${location.href.split('#')[0]}`; // CRLF: RFC 6068
+        mail.href = `mailto:?subject=${encodeURIComponent(t('mail_self_subject'))}&body=${encodeURIComponent(body)}`;
+        mail.textContent = t('cta_mobile_mail');
+        group.append(mail);
+        note.textContent = t('cta_mobile_note');
+      }
+      group.append(note);
       return;
     }
-    buttons.forEach((b) => {
+    links.forEach((b) => {
       if (b.dataset.os === os) b.href = dlHref(os);
       else b.remove();
     });
     const unpubNote = $('[data-unpub-note]', group);
     if (unpubNote && CONFIG.downloads[os].url) unpubNote.remove();
-    if (!compact) {
+    if (!compact && !quiet) {
       const link = document.createElement('a');
       link.className = 'other';
       link.href = dlHref(other);
@@ -87,27 +118,92 @@
   (() => {
     const panel = $('[data-download]');
     if (!panel) return;
-    for (const which of ['mac', 'win']) {
-      const row = $(`[data-dl="${which}"]`, panel);
-      if (CONFIG.downloads[which].url && CONFIG.downloads[which].sha256) {
-        const sha = document.createElement('p');
-        sha.className = 'small mono';
-        sha.textContent = `${t('dl_sha')} ${CONFIG.downloads[which].sha256}`;
-        row.append(sha);
-      }
-    }
     const anyUnpublished = !CONFIG.downloads.mac.url || !CONFIG.downloads.win.url;
     const notify = $('[data-dl-notify]', panel);
     if (anyUnpublished && CONFIG.contactEmail) {
       $('[data-dl-notify-link]', notify).href = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent(t('dl_notify_subject'))}`;
       notify.hidden = false;
     }
-    if (CONFIG.signed) {
-      $('[data-signing]', panel).remove();
-      $('[data-unsigned-steps]', panel).remove();
-    } else if (os === 'win') {
-      const items = $$('[data-unsigned-steps] li', panel);
-      items[0].parentElement.append(items[0]); // detected OS first
+    // First-run steps: one OS at a time. theme.js picked the visitor's OS before first paint (html[data-run-os], which
+    // the stylesheet reads for both the list and the pressed chip), so nothing moves or flips when this script
+    // arrives; the chips only switch that attribute, and aria-pressed follows for assistive technology.
+    const root = document.documentElement;
+    const tabs = $$('[data-os-tab]', panel);
+    const showRun = (which) => {
+      root.dataset.runOs = which;
+      tabs.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.osTab === which)));
+    };
+    tabs.forEach((b) => b.addEventListener('click', () => showRun(b.dataset.osTab)));
+    showRun(root.dataset.runOs === 'win' ? 'win' : 'mac');
+  })();
+
+  // ---- After the click: the browser handles the download, and the page says what to do with the file ----
+  // The card is a non-modal dialog: it takes focus so a keyboard user lands on the next step, and never blocks the page.
+  // It stays until closed, because the steps are needed while the installer is open in another window.
+  (() => {
+    const dock = $('[data-dock]');
+    const whichDownload = (a) => ['mac', 'win'].find((w) => CONFIG.downloads[w].url && a.getAttribute('href') === CONFIG.downloads[w].url);
+    const sheet = window.matchMedia('(max-width: 600px)');
+    let trigger = null;
+    // As a bottom sheet the card spans the width: keep anything focused or jumped to out from under it, and keep
+    // that in step with rotation, resizing and the card's own height.
+    const pad = () => { document.documentElement.style.scrollPaddingBottom = dock && dock.open && sheet.matches ? `${dock.offsetHeight + 16}px` : ''; };
+    const close = () => {
+      if (!dock || !dock.open) return;
+      const inside = dock.contains(document.activeElement);
+      dock.close();
+      pad();
+      if (inside && trigger && trigger.isConnected) trigger.focus({ preventScroll: true });
+    };
+    const open = (which, from) => {
+      if (!dock || typeof dock.show !== 'function') return;
+      const title = $('[data-dock-title]', dock);
+      title.textContent = t(`dock_title_${which}`);
+      // The panel's own list for that OS (scoped to the panel: the card holds a copy of an earlier one).
+      const steps = $(`[data-download] [data-run="${which}"] .run`);
+      $('[data-dock-steps]', dock).replaceChildren(...(steps ? [steps.cloneNode(true)] : []));
+      $('[data-dock-retry]', dock).href = CONFIG.downloads[which].url;
+      trigger = from;
+      if (!dock.open) dock.show();
+      pad();
+      title.focus({ preventScroll: true });
+    };
+    document.addEventListener('click', (e) => {
+      // A modified click opens the file elsewhere (new tab, new window, save as): leave it alone.
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+      const which = a && whichDownload(a);
+      if (!which) return; // not a published download: nothing to explain
+      // The version this link serves, remembered in this browser only, so a later visit can say when a newer one is out.
+      store.set('tiza-dl', JSON.stringify({ v: CONFIG.downloads[which].version, os: which }));
+      if (!a.closest('[data-dock]')) open(which, a);
+    });
+    if (dock) {
+      $('[data-dock-close]', dock).addEventListener('click', close);
+      // Esc closes it from anywhere on the page, not only while focus is inside.
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && dock.open) { e.preventDefault(); close(); } });
+      if (sheet.addEventListener) sheet.addEventListener('change', pad);
+      if ('ResizeObserver' in window) new ResizeObserver(pad).observe(dock);
+    }
+
+    // A returning visitor whose last download here was an older version: there is no auto-update, so say it.
+    let prev = null;
+    try { prev = JSON.parse(store.get('tiza-dl') || 'null'); } catch { /* not ours */ }
+    const parts = (v) => String(v).split('.').map((n) => parseInt(n, 10) || 0);
+    const newer = (a, b) => {
+      const x = parts(a), y = parts(b);
+      for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+      return false;
+    };
+    // Only when that download was for this computer's OS: then the hero button right above the line is the new build.
+    const now = prev && prev.os === os && (os === 'mac' || os === 'win') && CONFIG.downloads[os].url ? CONFIG.downloads[os].version : '';
+    const slot = $('[data-returning]');
+    if (slot && now && typeof prev.v === 'string' && /^\d+(\.\d+){0,2}$/.test(prev.v) && newer(now, prev.v)) {
+      // The sentence replaces the "free during beta" line instead of adding one. It is shorter than that line and
+      // set in the same weight, and the line keeps its height: nothing below it moves.
+      slot.style.minHeight = `${slot.offsetHeight}px`;
+      slot.textContent = t('returning_new', { new: now, old: prev.v });
+      slot.classList.add('returning');
     }
   })();
 
@@ -126,6 +222,7 @@
   const ORDER = ['ready', 'joining', 'recording', 'uploading', 'saved'];
   const DUR = { ready: 6000, joining: 2000, recording: 6000, uploading: 2600, saved: 3200 };
   const READY_SECONDS = 6; // the countdown runs in real seconds, so it never lies
+  const TODAY = (() => { const d = new Date(), two = (n) => String(n).padStart(2, '0'); return `${d.getFullYear()}-${two(d.getMonth() + 1)}-${two(d.getDate())}`; })();
 
   class Demo {
     constructor(el, { auto }) {
@@ -224,15 +321,16 @@
         const spent = this.deadline ? DUR.recording - (this.remaining ?? (this.deadline - Date.now())) : 0;
         let s = 7 + Math.max(0, Math.floor(spent / 1000));
         timer.textContent = `00:${mmss(s)}`;
-        if (!reduced.matches) this.tick = setInterval(() => { s += 1; timer.textContent = `00:${mmss(s)}`; }, 1000);
+        // The pinned copy (auto off) is driven by scroll and always ticks; the hero clock stops with its loop.
+        if (!reduced.matches && (!this.auto || (this.playing && !this.hoverPaused))) this.tick = setInterval(() => { s += 1; timer.textContent = `00:${mmss(s)}`; }, 1000);
       } else if (state === 'uploading') {
         status.textContent = icloud ? t('demo_st_uploading_icloud') : t('demo_st_uploading', { cloud });
         timer.textContent = ''; pill.textContent = t('demo_pill_rec');
-        file.textContent = t('demo_file');
+        file.textContent = t('demo_file', { date: TODAY });
       } else if (state === 'saved') {
         status.textContent = icloud ? t('demo_st_saved_icloud') : t('demo_st_saved', { cloud });
         timer.textContent = ''; pill.textContent = t('demo_pill_done');
-        file.textContent = t('demo_file');
+        file.textContent = t('demo_file', { date: TODAY });
       }
     }
   }
@@ -296,11 +394,11 @@
   $$('[data-copy]').forEach((btn) => btn.addEventListener('click', async () => {
     const src = $(btn.dataset.copy);
     const ok = await copyText(src ? src.textContent.trim() : '');
-    btn.parentElement.querySelector('.status').textContent = ok ? btn.dataset.ok : btn.dataset.fail;
+    say(btn.parentElement.querySelector('.status'), ok ? btn.dataset.ok : btn.dataset.fail, !ok);
   }));
   $$('[data-share]').forEach((btn) => btn.addEventListener('click', () => {
     const status = btn.parentElement.querySelector('.status');
-    shareOrCopy(btn.dataset.text, (ok, url) => { status.textContent = ok ? btn.dataset.ok : url; });
+    shareOrCopy(btn.dataset.text, (ok, url) => say(status, ok ? btn.dataset.ok : `${btn.dataset.fail || ''} ${url}`.trim(), !ok));
   }));
 
   // ---- Theme ----
